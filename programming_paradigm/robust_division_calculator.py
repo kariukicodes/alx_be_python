@@ -1,14 +1,14 @@
 def safe_divide(numerator, denominator):
     try:
-        # Convert inputs to floats
+        # convert inputs to floats (may raise ValueError)
         num = float(numerator)
         den = float(denominator)
-
-        try:
-            result = num / den
-            return f"The result of the division is {result}"
-        except ZeroDivisionError:
-            return "Error: Cannot divide by zero."
-
     except ValueError:
         return "Error: Please enter numeric values only."
+
+    try:
+        result = num / den
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero."
+
+    return f"The result of the division is {result}"
